@@ -1,0 +1,14 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+<script src="angular.min.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>ng-model</title>
+</head>
+<body>
+    <p>My name is {{yourName||'Anna'}}</p>
+    <label>請輸入你的名字，也和大家自我介紹吧！</label>
+    <input type="text" ng-model="yourName" />
+</body>
+</html>

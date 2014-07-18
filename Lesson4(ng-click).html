@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+    <meta charset=utf-8 />
+    <title>ng-click</title>
+</head>
+<body>
+
+    <div ng-controller="TodoCrtl">
+
+        目前 {{ price | number}} 元
+
+        <br />
+
+        請輸入價錢: <input type="text" ng-model="price">
+
+        <br />
+
+        <input type="button" value="選擇100元" ng-click="action()">
+
+    </div>
+
+</body>
+</html>
+
+<script>
+    function TodoCrtl($scope) {
+
+        $scope.price = 0;
+
+        $scope.action = function () {
+            $scope.price = 100;
+        };
+
+    }
+
+</script>
