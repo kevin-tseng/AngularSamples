@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <meta charset=utf-8 />
+    <title>JS Bin</title>
+</head>
+<body>
+
+    <div ng-app="">
+        <form name="myForm" ng-controller="Ctrl">
+            Value1: <input type="checkbox" ng-model="value1"> <br />
+            Value2: <input type="checkbox" ng-model="value2"
+                           ng-true-value="YES" ng-false-value="NO"> <br />
+            <tt>value1 = {{value1}}</tt><br />
+            <tt>value2 = {{value2}}</tt><br />
+        </form>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function Ctrl($scope) {
+        $scope.value1 = true;
+        $scope.value2 = 'YES';
+    }
+</script>
