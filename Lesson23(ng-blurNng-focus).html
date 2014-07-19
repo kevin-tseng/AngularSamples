@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.angularjs.org/1.2.0rc1/angular.js"></script>
+    <meta charset=utf-8 />
+    <title>ng-blur</title>
+</head>
+<body>
+    <div ng-app ng-init="focus=false;blur=false;active=false">
+        <input type="text" ng-class="{ myFocus: focus, myBlur: blur }"
+               ng-focus="focus=true;blur=false;active=true;" ng-blur="blur=true;focus=false;active=false;" />
+        <p>active: {{active}}</p>
+    </div>
+</body>
+</html>

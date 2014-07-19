@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <meta charset=utf-8 />
+    <title>$watch</title>
+</head>
+<body ng-controller="AddressControll">
+    $watch方法： <input type="text" ng-model="test1" />
+    <br>
+    ng-change方法：<input type="text" ng-model="test2" ng-change="update()" />
+    <br>
+    ng-click方法：<input type="text" ng-model="test3" ng-click="update()" />
+
+
+    <span>{{test1}}</span>
+
+</body>
+</html>
+
+<script>
+
+    function AddressControll($scope) {
+
+        $scope.$watch('test1', function (newValue, oldValue) {
+            console.log(newValue, oldValue);
+
+        }, true);
+
+        $scope.update = function () {
+            console.log("test2");
+        };
+    }
+
+</script>

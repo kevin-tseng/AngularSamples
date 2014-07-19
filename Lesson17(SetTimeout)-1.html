@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <meta charset=utf-8 />
+    <title>$timeout</title>
+</head>
+<body ng-controller="Ctrl">
+    {{countDown}}
+    <button ng-click="stop()">Stop</button>
+</body>
+</html>
+
+<script>
+
+    function Ctrl($scope) {
+        $scope.countDown = 10;
+        var timer = setInterval(function () {
+            $scope.countDown--;
+            $scope.$apply();
+            console.log($scope.countDown);
+        }, 1000);
+
+        $scope.stop = function () {
+            window.clearInterval(timer);
+        };
+
+    }
+
+</script>

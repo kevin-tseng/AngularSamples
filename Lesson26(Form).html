@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <meta charset=utf-8 />
+    <title>form</title>
+</head>
+<body>
+    <div ng-controller="Ctrl">
+
+        <form name="myForm" ng-submit="save()">
+            請輸入您的名字：<input ng-model="desinger.name" name="desingerName" placeholder="name" required />
+            <span ng-show="!myForm.desingerName.$valid">有錯，不可為空白</span>
+            <pre>myForm.desingerName.$valid = {{myForm.desingerName.$valid}}</pre>
+            <br>
+            請輸入您的e-mail：<input ng-model="desinger.email" name="desingerEmail" type="email" placeholder="xxx@xxx.xxx" />
+            <span ng-show="!myForm.desingerEmail.$valid">有错</span>
+            <span ng-show="myForm.desingerEmail.$error.required">此欄位必填</span>
+            <span ng-show="myform.desingerEmail.$error.email">email格式錯誤</span>
+            <br>
+            請輸入您的年齡：<input placeholder="age" ng-model="desinger.age" name="desinger-age" />
+            <br>
+            <input type="submit" value="儲存" ng-disabled="myForm.$invalid">
+        </form>
+
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    angular.module('myApp', []);
+
+    angular.module('myApp')
+    .controller('Ctrl', function ($scope, $log) {
+        $scope.desinger = { name: 'Anna' };
+        $scope.save = function () {
+            $log.log($scope.desinger.email);
+        };
+
+    });
+
+</script>

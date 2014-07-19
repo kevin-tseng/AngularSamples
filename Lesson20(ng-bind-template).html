@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+
+    <meta charset=utf-8 />
+    <title>ng-bind-bind-template</title>
+</head>
+<body>
+    <div ng-controller="Ctrl">
+        Enter name: <input type="text" ng-model="name"><br>
+        <p>使用ng-bind-template 綁定兩個model的值:</p>
+        <pre ng-bind-template="{{salutation}} {{name}}!"></pre>
+        <p>使用ng-bind-template 綁定一個model的值:</p>
+        <pre ng-bind-template="{{name}}!"></pre>
+        <p>使用ng-bind綁定一個model的值，顯示正常，<br />但把其他符號放入標籤內，無法顯示:</p>
+        <pre ng-bind="name" ！></pre>
+        <p>使用ng-bind綁定一個model的值，顯示正常，<br />可以把其他符號放入span標籤外，得到期望的顯示內容:</p>
+        <span ng-bind="name"></span>！
+        <p>使用ng-bind綁定兩個model的值，顯示失敗:</p>
+        <span ng-bind='salutation' 'name' ！></span>
+        <p>使用ng-cload綁定一個model的值，顯示正常，<br />可以把其他符號放入span標籤外，得到期望的顯示內容:</p>
+        <span ng-cloak class="ng-cloak">{{ name }}</span>!
+        <br />
+        <p>使用ng-cloak綁定兩個model的值，顯示正常:</p>
+        <span ng-cloak class="ng-cloak">{{salutation}} {{ name }}</span>!
+    </div>
+</body>
+</html>
+
+<script>
+
+    function Ctrl($scope) {
+        $scope.salutation = 'Hello';
+        $scope.name = 'Anna';
+
+    }
+
+</script>

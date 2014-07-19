@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <meta charset=utf-8 />
+    <title>ng-href</title>
+</head>
+<body ng-controller="MainCtrl">
+    <a href="https://www.youtube.com/{{ y1 }}"> Youtube1 </a>
+    <br />
+    <a ng-href="https://www.youtube.com/{{ y2 }}"> Youtube </a>
+</body>
+</html>
+
+
+<script>
+
+    function MainCtrl($scope) {
+
+        $scope.y1 = "watch?v=2AUhPKJvslo";
+        $scope.y2 = "watch?v=obc463n8w8E";
+    }
+
+</script>

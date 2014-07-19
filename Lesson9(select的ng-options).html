@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+    <meta charset=utf-8 />
+</head>
+
+<body ng-controller="lotteryCtrl">
+
+    <select ng-model="Select1" ng-options="lottery.ProductName for lottery in lotteryModel">
+        <option value="">-- 請選擇 --</option>
+    </select>
+
+    <p>{{ Select1.ProductName }}</p>
+
+</body>
+</html>
+
+<script>
+    function lotteryCtrl($scope) {
+        $scope.lotteryModel = [
+          {
+              id: 1,
+              ProductName: '威力彩'
+          },
+          {
+              id: 2,
+              ProductName: '今彩539'
+          },
+          {
+              id: 3,
+              ProductName: '大樂透'
+          }];
+    }
+</script>

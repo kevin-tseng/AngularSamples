@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <meta charset=utf-8 />
+    <title>ng-style</title>
+</head>
+
+<body ng-app>
+    <div ng-controller="Ctrl">
+        <div ng-repeat="payment in payments">
+            <div ng-style="set_color(payment)">{{payment.number}}</div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    function Ctrl($scope) {
+
+        $scope.payments = [
+        {
+            number: 20
+        },
+        {
+            number: 160
+        }];
+
+        $scope.set_color = function (payment) {
+            if (payment.number > 100) {
+                return { color: "red" };
+            }
+        };
+    }
+
+</script>

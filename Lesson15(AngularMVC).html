@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+    <meta charset=utf-8 />
+    <title>AngularJS ���習題 (地址郵遞區號)</title>
+</head>
+<body>
+
+    <div ng-controller="MainCtrl">
+
+
+
+        <p>請輸入您的完整地址:</p>
+
+        <select ng-model="SelectCity" ng-change="cityChange()" ng-options="a.city for a in address">
+            <option value="">--縣市--</option>
+        </select>
+
+        <p>請輸入您的完整地址:</p>
+
+        <select ng-model="SelectTown" ng-options="t.name for t in towns[SelectCity.value].townName">
+            <option value="">--鄉鎮市區--</option>
+        </select>
+
+
+
+
+        <input type="text" placeholder=" 請輸入地址" ng-model="$parent.myAddress">
+        <br> <br>
+
+
+        <span>{{SelectTown.zipCode}} {{SelectCity.city}} {{SelectTown.name}} {{myAddress}} {{town}}</span>
+
+    </div>
+
+
+    <hr />
+    <h3>練習說明</h3>
+    <ul>
+        <li>請使用 AngularJS 的<code>自定Directive</code>改寫上方功能，Directive 僅需顯示 城市、縣市和地址三個欄位．</li>
+        <li>將郵遞區號資料定義在 Model，不過<code>自定Service</code>去存取．</li>
+        <li>地址格式：<code>郵遞區號 城市 鄉鎮縣市 地址</code>(中間用空格區隔)．</li>
+        <li>可將預設值值(可帶入完整地址格式地址)，縣市和鄉鎮縣市的下拉選單自動選擇和自動帶入地址，且上方功能皆能正常運作．</li>
+        <li>輸出結果頁可以使用多個 地址Directive 且各自獨立(isolated scope)．</li>
+    </ul>
+
+</body>
+</html>
+
+<script>
+
+    function MainCtrl($scope) {
+
+        $scope.stage = 1;
+        $scope.address = [
+          {
+              city: '基隆市',
+              value: 0
+          },
+          {
+              city: '臺北市',
+              value: 1
+          },
+          {
+              city: '新北市',
+              value: 2
+          },
+          {
+              city: '桃園縣',
+              value: 3
+          },
+          {
+              city: '新竹市',
+              value: 4
+          },
+          {
+              city: '新竹縣',
+              value: 5
+          },
+          {
+              city: '苗栗縣',
+              value: 6
+          },
+          {
+              city: '臺中市',
+              value: 7
+          },
+          {
+              city: '彰化縣',
+              value: 8
+          },
+          {
+              city: '南投縣',
+              value: 9
+          },
+          {
+              city: '雲林縣',
+              value: 10
+          },
+          {
+              city: '嘉義市',
+              value: 11
+          },
+          {
+              city: '嘉義縣',
+              value: 12
+          },
+          {
+              city: '臺南市',
+              value: 13
+          },
+          {
+              city: '高雄市',
+              value: 14
+          },
+          {
+              city: '屏東縣',
+              value: 15
+          },
+          {
+              city: '臺東縣',
+              value: 16
+          },
+          {
+              city: '花蓮縣',
+              value: 17
+          },
+          {
+              city: '宜蘭縣',
+              value: 18
+          },
+          {
+              city: '澎湖縣',
+              value: 19
+          },
+          {
+              city: '金門縣',
+              value: 20
+          },
+          {
+              city: '連江縣',
+              value: 21
+          }];
+
+
+
+        //$scope.towns = ['中正區', '大同區'];
+
+        $scope.towns = [
+
+          {
+              townName: [
+                            {
+                                name: '仁愛區',
+                                zipCode: '200'
+                            },
+                            {
+                                name: '信義區',
+                                zipCode: '201'
+                            },
+                            {
+                                name: '中正區',
+                                zipCode: '202'
+                            },
+                            {
+                                name: '中山區',
+                                zipCode: '203'
+                            },
+                            {
+                                name: '安樂區',
+                                zipCode: '204'
+                            },
+                            {
+                                name: '暖暖區',
+                                zipCode: '205'
+                            },
+                            {
+                                name: '七堵區',
+                                zipCode: '206'
+                            }
+              ],
+              value: 0
+          },
+          {
+              townName: [
+                            {
+                                name: '中正區',
+                                zipCode: '100'
+                            },
+                            {
+                                name: '大同區',
+                                zipCode: '103'
+                            },
+                            {
+                                name: '中山區',
+                                zipCode: '104'
+                            },
+                            {
+                                name: '松山區',
+                                zipCode: '105'
+                            },
+                            {
+                                name: '大安區',
+                                zipCode: '106'
+                            },
+                            {
+                                name: '萬華區',
+                                zipCode: '108'
+                            },
+                            {
+                                name: '信義區',
+                                zipCode: '110'
+                            },
+                            {
+                                name: '士林區',
+                                zipCode: '111'
+                            },
+                            {
+                                name: '北投區',
+                                zipCode: '112'
+                            },
+                            {
+                                name: '內湖區',
+                                zipCode: '114'
+                            },
+                            {
+                                name: '南港區',
+                                zipCode: '115'
+                            },
+                            {
+                                name: '文山區',
+                                zipCode: '116'
+                            }
+              ],
+              value: 1
+          },
+          
+         
+          {
+              townName: [
+                            {
+                                name: '馬公市',
+                                zipCode: '880'
+                            },
+                            {
+                                name: '西嶼鄉',
+                                zipCode: '881'
+                            },
+                            {
+                                name: '望安鄉',
+                                zipCode: '882'
+                            },
+                            {
+                                name: '七美鄉',
+                                zipCode: '883'
+                            },
+                            {
+                                name: '白沙鄉',
+                                zipCode: '884'
+                            },
+                            {
+                                name: '湖西鄉',
+                                zipCode: '885'
+                            }
+              ],
+              value: 19
+          },
+ 
+          {
+              townName: [
+                            {
+                                name: '南竿鄉',
+                                zipCode: '209'
+                            },
+                            {
+                                name: '北竿鄉',
+                                zipCode: '210'
+                            },
+                            {
+                                name: '莒光鄉',
+                                zipCode: '211'
+                            },
+                            {
+                                name: '東引鄉',
+                                zipCode: '212'
+                            }
+              ],
+              value: 21
+          }];
+
+        $scope.cityChange = function () {
+
+        };
+
+    }
+
+</script>

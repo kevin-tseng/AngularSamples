@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+    <meta charset=utf-8 />
+    <title>ng-src</title>
+</head>
+<body>
+    <div ng-controller="MainCtrl">
+
+        <ul>
+            <li ng-repeat="item in items">
+
+                <img class="img-resize" ng-src="{{item.img}}" />
+
+            </li>
+
+        </ul>
+
+
+    </div>
+
+</body>
+</html>
+
+
+<script>
+
+    function MainCtrl($scope) {
+
+
+        $scope.items = [
+
+          {
+              id: 1,
+              img: 'http://goo.gl/Qv4X4V'
+          },
+
+          {
+              id: 2,
+              img: 'http://goo.gl/h8VXPH'
+          },
+
+          {
+              id: 3,
+              img: 'http://goo.gl/YKmPn9'
+          },
+
+          {
+              id: 4,
+              img: 'http://goo.gl/lr6xH9'
+          }
+
+        ];
+
+
+    }
+
+</script>
+

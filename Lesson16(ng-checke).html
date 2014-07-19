@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <meta charset=utf-8 />
+    <title>JS Bin</title>
+</head>
+<body>
+    <div ng-controller="Ctrl">
+        Check me to check both: <input type="checkbox" ng-model="master">
+        <br />
+        <p ng-repeat="checkText in checkTexts">
+            <input type="checkbox" ng-checked="master">
+            {{checkText.checkName}}
+        </p>
+
+    </div>
+</body>
+</html>
+
+<script>
+
+    function Ctrl($scope) {
+
+        $scope.checkTexts = [{
+
+            checkName: "Anna"
+        },
+        {
+            checkName: "Don"
+        },
+        {
+            checkName: "Will"
+        },
+        {
+            checkName: "Joyce"
+        }];
+
+
+    }
+
+</script>
