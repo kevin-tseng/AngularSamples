@@ -8,7 +8,11 @@
         <select ng-model="template" ng-options="t.name for t in templates">
             <option value="">(blank)</option>
         </select>
-        url of the template: <tt>{{template.url}}</tt>
+
+        <br />
+        Url of the template: <tt>{{template.url}}</tt>
+        <br />
+        Name： <tt>{{template.name}}</tt>
         <hr />
         <div>
             <div ng-include="template.url"></div>
@@ -23,9 +27,7 @@
     angular.module('App', []);
 
     function Ctrl($scope) {
-        $scope.templates =
-          [{ name: 'template1.html', url: 'template1.html' }
-          , { name: 'template2.html', url: 'template2.html' }];
+        $scope.templates = [{ name: 'URL1', url: 'template1.html' } , { name: 'URL2', url: 'template2.html' }];
         $scope.template = $scope.templates[0];
     }
 

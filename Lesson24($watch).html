@@ -6,6 +6,7 @@
     <title>$watch</title>
 </head>
 <body ng-controller="AddressControll">
+
     $watch方法： <input type="text" ng-model="test1" />
     <br>
     ng-change方法：<input type="text" ng-model="test2" ng-change="update()" />
@@ -24,7 +25,6 @@
 
         $scope.$watch('test1', function (newValue, oldValue) {
             console.log(newValue, oldValue);
-
         }, true);
 
         $scope.update = function () {

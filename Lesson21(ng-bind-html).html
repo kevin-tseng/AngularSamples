@@ -8,13 +8,13 @@
 </head>
 
 <body>
-
+    <!--使用ng-bind-html-unsafe、ng-bind、ng-bind-html-->
     <div id="container" ng-controller="MyCtl">
-        <p>使用ng-bind-html-unsafe：</p>
+        <p>使用ng-bind-html-unsafe：</p><!--可以-->
         <div ng-bind-html-unsafe="someHtml"></div>
-        <p>使用ng-bind：</p>
+        <p>使用ng-bind：</p><!--不行-->
         <pre ng-bind="someHtml"></pre>
-        <p>使用ng-bind-html：</p>
+        <p>使用ng-bind-html：</p><!--可以-->
         <div ng-bind-html="someHtml"></div>
     </div>
 
@@ -27,11 +27,7 @@
     var app = angular.module('app', ['ngSanitize']);
 
     app.controller('MyCtl', function ($scope) {
-
         $scope.someHtml = '<img src="http://angularjs.org/img/AngularJS-large.png" />';
-
-
-
     });
 
 </script>
