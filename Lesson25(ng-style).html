@@ -20,13 +20,7 @@
 
     function Ctrl($scope) {
 
-        $scope.payments = [
-        {
-            number: 20
-        },
-        {
-            number: 160
-        }];
+        $scope.payments = [ { number: 20 }, { number: 160 }];
 
         $scope.set_color = function (payment) {
             if (payment.number > 100) {
