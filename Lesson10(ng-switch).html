@@ -7,7 +7,9 @@
 
 <body ng-controller="lotteryCtrl">
 
-    <select ng-model="Select1" required ng-options="lottery.ProductName for lottery in lotteryModel"></select>
+    <select ng-model="Select1" required ng-options="lottery.ProductName for lottery in lotteryModel">
+
+    </select>
     <br />
 
     <div class="animate-switch-container" ng-switch on="Select1.ProductName">
@@ -25,19 +27,7 @@
 
 <script>
     function lotteryCtrl($scope) {
-        $scope.lotteryModel = [
-          {
-              id: 1,
-              ProductName: '威力彩'
-          },
-          {
-              id: 2,
-              ProductName: '今彩539'
-          },
-          {
-              id: 3,
-              ProductName: '大樂透'
-          }];
+        $scope.lotteryModel = [ { id: 1, ProductName: '威力彩' }, { id: 2, ProductName: '今彩539' }, { id: 3, ProductName: '大樂透' }];
 
         $scope.Select1 = $scope.lotteryModel[0];
     }
